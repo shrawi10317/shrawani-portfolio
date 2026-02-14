@@ -80,7 +80,7 @@ header {
 
 .hero-content {
   width: 100%;
-  max-width: 360px;  /* small phone width */
+  max-width: 360px;
   padding: 0 10px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -99,22 +99,21 @@ header {
   word-wrap: break-word;
 }
 
-/* Hero buttons - default row layout */
+/* Hero buttons - responsive */
 .hero-buttons {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  width: 100%;
-  margin-top: 20px;
+  gap: 12px;
 }
 
 .hero-buttons .btn {
-  flex: 1 1 140px;
-  max-width: 180px;
+  flex: 1 1 45%;
+  min-width: 140px;
+  max-width: 250px;
   text-align: center;
   padding: 12px 0;
+  font-size: 0.95rem;
   box-sizing: border-box;
 }
 
@@ -218,6 +217,9 @@ header {
   justify-content: center;
   margin-top: 20px;
   gap: 30px;
+  max-width: 400px;  /* limit width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service-card {
@@ -227,6 +229,7 @@ header {
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 500px;
 }
 
 .service-card:hover {
@@ -322,10 +325,10 @@ footer {
   color: #fff;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE NAVBAR ================= */
 @media (max-width: 768px) {
   .navbar .nav-links {
-    display: none;
+    display: flex;                /* always flex for JS toggle */
     flex-direction: column;
     background-color: #fff;
     position: absolute;
@@ -333,14 +336,25 @@ footer {
     right: 20px;
     padding: 20px;
     border-radius: 10px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    opacity: 0;                   /* hide by default */
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;                   /* show when toggle clicked */
+    pointer-events: auto;
   }
 
   .menu-toggle {
     display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 8px 0;
   }
 
   .projects-container,
@@ -380,7 +394,7 @@ footer {
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
-    max-width: 600px;
+    max-width: 400px;
     align-items: center;
   }
 
@@ -390,40 +404,7 @@ footer {
   }
 }
 
-/* ================= HERO BUTTONS FINAL SOLUTION ================= */
-.hero-content {
-  width: 100%;
-  max-width: 100%; /* allow buttons to have full width */
-  box-sizing: border-box;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;        /* allow buttons to wrap */
-  justify-content: center;
-  gap: 12px;
-}
-
-.hero-buttons .btn {
-  flex: 1 1 45%;          /* buttons take up almost half of the container */
-  min-width: 140px;       /* keep a minimum width for readability */
-  max-width: 250px;       /* limit max width */
-  text-align: center;
-}
-
-/* Stack buttons vertically for very small screens */
-/* Hero Buttons - slightly smaller but responsive */
-.hero-buttons .btn {
-  flex: 1 1 120px;    /* reduced base width */
-  max-width: 160px;   /* reduced max width */
-  padding: 10px 0;    /* slightly smaller height */
-  font-size: 0.95rem; /* smaller font */
-  box-sizing: border-box;
-}
-
-/* Small screens stack vertically */
+/* ================= SMALL SCREENS HERO BUTTONS ================= */
 @media (max-width: 400px) {
   .hero-buttons .btn {
     width: 100%;
@@ -431,43 +412,4 @@ footer {
     padding: 10px 0;
     font-size: 0.95rem;
   }
-
-.services-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 30px;
-
-    max-width: 400px;   /* new: limit container width */
-    margin-left: auto;   /* center horizontally */
-    margin-right: auto;  /* center horizontally */
 }
-
-.service-card
-{
-  max-width: 500px;
-}
-
-.logo
-{
-  font-size:1rem;
-  font-weight: 50px;
-}
-}
-
-.nav-links {
-  display: none; /* hidden by default */
-}
-
-.nav-links.active {
-  display: flex; /* shows links when toggle clicked */
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
-
