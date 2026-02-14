@@ -412,4 +412,27 @@ footer {
     padding: 10px 0;
     font-size: 0.95rem;
   }
+
+  .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 30px;
+
+    max-width: 400px;   /* new: limit container width */
+    margin-left: auto;   /* center horizontally */
+    margin-right: auto;  /* center horizontally */
+}
+
+.service-card
+{
+  max-width: 500px;
+}
+
+.logo
+{
+  font-size:1rem;
+  font-weight: 50px;
+}
 }
