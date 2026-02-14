@@ -455,3 +455,19 @@ footer {
   font-weight: 50px;
 }
 }
+
+.nav-links {
+  display: none; /* hidden by default */
+}
+
+.nav-links.active {
+  display: flex; /* shows links when toggle clicked */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
